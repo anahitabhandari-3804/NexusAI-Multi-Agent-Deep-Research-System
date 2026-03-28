@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+python-dotenv
+tavily-python
+huggingface-hub
+google-genai
+groq

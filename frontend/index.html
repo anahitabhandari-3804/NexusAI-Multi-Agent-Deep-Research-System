@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI — Research Assistant</title>
+    <meta name="description" content="Nexus AI is a powerful real-time research assistant powered by Gemini and live web search.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+    <!-- Ambient background blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="app-wrapper">
+        <!-- ====== SIDEBAR ====== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <span class="logo-text">Nexus AI</span>
+                </div>
+                <div class="sidebar-actions">
+                    <button class="new-chat-btn" id="new-chat-btn" title="New conversation">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-section-label">Recent</div>
+            <div class="sessions-list" id="sessions-list">
+                <!-- Injected by JS -->
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Live research active
+                </div>
+                <div class="model-badge">Gemini 2.0 Flash</div>
+            </div>
+        </aside>
+
+        <!-- ====== MAIN CHAT ====== -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <button class="sidebar-toggle" id="sidebar-toggle" title="Toggle sidebar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+                <h1 class="session-title" id="session-title">New Conversation</h1>
+                <div class="header-actions">
+                    <button class="icon-btn" id="theme-toggle" title="Switch theme">
+                        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                    <button class="icon-btn" id="clear-chat-btn" title="Clear this conversation">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                    </button>
+                </div>
+            </header>
+
+            <div class="messages-wrap" id="chat-history">
+                <!-- Welcome state -->
+                <div class="welcome-state" id="welcome-state">
+                    <div class="welcome-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h2>How can I help you today?</h2>
+                    <p>Ask me anything — I'll research the latest information and give you a structured, factual answer.</p>
+                    <div class="suggestion-chips">
+                        <button class="chip" data-q="What are the current ongoing wars in the world?">🌍 Ongoing global conflicts</button>
+                        <button class="chip" data-q="What are the latest AI developments in 2026?">🤖 Latest AI news</button>
+                        <button class="chip" data-q="What is happening in the global economy right now?">📈 Global economy</button>
+                        <button class="chip" data-q="Tell me about recent climate change developments">🌿 Climate & environment</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <form id="chat-form" autocomplete="off">
+                    <div class="input-wrapper">
+                        <textarea
+                            id="user-input"
+                            placeholder="Ask me anything..."
+                            rows="1"
+                            maxlength="2000"
+                        ></textarea>
+                        <button type="submit" id="send-btn" title="Send">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </div>
+                    <p class="input-hint">Powered by Gemini 2.0 Flash + Tavily live search</p>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">Copied to clipboard!</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js?v=3"></script>
+</body>
+</html>
