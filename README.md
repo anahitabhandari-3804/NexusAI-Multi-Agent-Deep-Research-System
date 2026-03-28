@@ -27,10 +27,10 @@ Unlike standard chatbot interfaces, **Nexus AI** is built from the ground up as 
 
 ## 🎥 Demo
 
-<video src="https://github.com/user-attachments/assets/YOUR_VIDEO_ID_HERE" width="100%" controls></video>
+<vi<video src="research-agent_x3rmx3C2.mp4" width="100%" controls></video>
 
-> [!NOTE]
-> To show your video on GitHub: Upload the video file (mp4/mov) to your GitHub repository or drag it into an issue/README editor, then replace `YOUR_VIDEO_ID_HERE` with the link GitHub provides.
+> [!TIP]
+> This video is hosted directly in the repository. If it doesn't play automatically in some browsers, you can also view the raw file [here](research-agent_x3rmx3C2.mp4).
 
 ## 🚀 Getting Started
 
