@@ -31,6 +31,9 @@ Unlike standard chatbot interfaces, **Nexus AI** is built from the ground up as 
 
 > [!TIP]
 > This video is hosted directly in the repository. If it doesn't play automatically in some browsers, you can also view the raw file [here](research-agent_x3rmx3C2.mp4).
+> <img width="1914" height="937" alt="image" src="https://github.com/user-attachments/assets/18800487-9c07-43ee-9687-f1a2d14f688c" />
+<img width="1909" height="1030" alt="image" src="https://github.com/user-attachments/assets/b1ced66e-9ff5-45cb-92bb-8494a91e882a" />
+
 
 ## 🚀 Getting Started
 
